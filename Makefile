@@ -18,10 +18,8 @@ run:
 	-eval 'syn:start(),syn:init().'
 
 test: all
-	ct_run -dir $(PROJECT_DIR)/test -logdir $(PROJECT_DIR)/test/results \
-	-pa `rebar3 path`
+	@$(PROJECT_DIR)/rebar3 ct
 
 travis:
 	@$(PROJECT_DIR)/rebar3 compile
-	ct_run -dir $(PROJECT_DIR)/test -logdir $(PROJECT_DIR)/test/results \
-	-pa `$(PROJECT_DIR)/rebar3 path`
+	@$(PROJECT_DIR)/rebar3 ct
